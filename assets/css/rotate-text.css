@@ -1,0 +1,16 @@
+/* CSS Rotations */
+.rotateText {
+  color: #333;
+  text-transform: lowercase;
+  font-weight: bolder;
+  border-radius: 4px;
+  -webkit-animate: rotate(7deg);
+  -webkit-transform: rotate(7deg);
+  width: 120px; }
+
+.rotateText:hover {
+  width: 220px;
+  transition: ease 1s;
+  -webkit-transform: rotate(-90deg); }
+
+/*# sourceMappingURL=rotate-text.css.map */

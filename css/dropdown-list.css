@@ -1,0 +1,38 @@
+.dropdown {
+    position: relative;
+    color: #333;
+}
+.dropdown ul.dropdownList {
+    margin: 0;
+    position: absolute;
+}
+.dropdown ul.dropdownList {
+    display: none;
+    top: 43px;
+    right: -10px;
+    color: #333;
+}
+.dropdown:hover ul.dropdownList {
+    display: block;
+    transition: ease;
+}
+.dropdown ul.dropdownList li {
+    visibility: visible;
+    list-style: none;
+
+    background: #fff;
+    
+    min-width: 220px;
+    border-bottom: 1px solid #999;
+    
+    right: 0px;
+    top: 0px;
+}
+.dropdown ul.dropdownList li:hover {
+    background: #f2f2f2;
+}
+.dropdownList li > a { 
+    text-decoration: none; 
+    padding: 20px;
+    cursor: pointer;
+}

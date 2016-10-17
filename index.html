@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+		
+	<style>
+		/* Common */
+		html, body {
+			height: 100%;
+			width: 100%;
+			
+			margin: 0; padding: 0;
+			
+			font-family: 'Arial';
+		}
+		
+		/* Header */
+		section.header {
+			margin: 0;
+			padding: 10px;
+
+			-webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.6);
+			-moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.6);
+			box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.6);
+		}
+		section.header .title {
+			font-size:22px;
+			
+			color: #333;
+			display: inline-block;
+			
+			line-height:32px;
+		}
+		section.header > .right {
+			float: right;
+			line-height:32px;
+			height: 52px;
+		}
+		
+		.container { 
+			margin-top: 20px;
+		}
+	</style>
+	
+	<link href="assets/css/rotate-text.css" rel="stylesheet" />
+	<link href="assets/css/progress-bar.css" rel="stylesheet" />
+	<link href="css/dropdown-list.css" rel="stylesheet" />
+	<link href="css/note-block.css" rel="stylesheet" />
+</head>
+
+
+<body>
+	<section class="header">
+		<div class="title">Page Title</div>
+		
+		<div class="right">
+			<div class="dropdown">
+				<a uib-dropdown-toggle="" 
+					class="profile-toggle-link dropdown-toggle" aria-haspopup="true" aria-expanded="true">
+					Links
+				</a>
+				
+				<ul class="dropdownList">
+					<li>
+						<a href="angular-test-web-camp.html">Angular Test Web Camp</a>
+					</li>
+					<li>
+						<a href="bar-graphs.html">Bar Graphs</a>
+					</li>
+					<li>
+						<a href="json-chart.html">JSON Chart</a>
+					</li>
+					<li>
+						<a href="quicksort.html">Quicksort</a>
+					</li>
+					<li>
+						<a href="sortable-bar-chart.html">Sortable Bar Chart</a>
+					</li>
+					<li>
+						<a href="test.html">Test Chart</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	
+
+	<section class="container">
+		<div id="nbArea"></div>
+		
+		<div class="noteBlock">
+			<div class="title">CSS Progress Bar</div>
+			
+			<a href="json-chart.html">Sortable Bar Chart (JSON)</a>
+			
+			<div class="row">
+				<span>
+					Big Query:
+				</span>
+				<a href="https://developers.google.com/bigquery/">BigQuery</a>
+			</div>
+
+			<div class="row">
+				<span>
+					HDFS:
+				</span>
+				<a href="http://hadoop.apache.org/docs/r1.2.1/hdfs_design.html">hdfs</a>
+			</div>
+
+			<div class="row">
+				<div class="rotateText">Very</div>
+				<div class="rotateText">Interesting</div>
+			</div>
+		</div>
+
+		<div class="noteBlock" id="progress-bar-area">
+			<div class="title">Navigation Links</div>
+			
+		</div>
+		
+	</section>
+</body>
+
+<!-- Templates -->
+<script id="noteBlockTemplate" type="text/x-handlebars-template">
+	<div class="noteBlock" style="background:#{{color}}">
+		<div class="title">{{title}}</div>
+		
+		<div class="content"><a href="{{content}}" target="_blank">{{title}}</a></div>
+	</div>
+</script>
+
+
+<script id="noteBlockTemplate2" type="text/x-handlebars-template">
+	<div class="noteBlock" style="background:#{{color}}">
+		<div class="title">{{title}}</div>
+		
+		<div class="content">{{content}}</div>
+		
+		<div class="footer">
+			
+		</div>
+	</div>
+</script>
+
+
+<script id="progressBarTemplate" type="text/x-handlebars-template">
+	<div class="container">
+		<input type="radio" class="radio" name="progress" value="five" id="five">
+		<label for="five" class="label">5%</label>
+
+		<input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" checked>
+		<label for="twentyfive" class="label">25%</label>
+
+		<input type="radio" class="radio" name="progress" value="fifty" id="fifty">
+		<label for="fifty" class="label">50%</label>
+
+		<input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive">
+		<label for="seventyfive" class="label">75%</label>
+
+		<input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
+		<label for="onehundred" class="label">100%</label>
+
+		<div class="progress">
+			<div class="progress-bar"></div>
+		</div>
+	</div>
+
+</script>
+	<!-- Scripts -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+<script src="https://raw.githubusercontent.com/desandro/masonry/master/dist/masonry.pkgd.min.js"></script>
+
+<script>
+	(function() {
+		class HexGen {
+			constructor(seed) {
+				this.seed = seed || 0;
+				this.chars = '0123456789ABCDEF';
+			}
+			
+			generateHex() {
+				var hexStr = '';
+				
+				for(var i = 0; i < 6; i++) {
+					var randomIdx = Math.floor(Math.random() * this.chars.length);
+					
+					hexStr += this.chars[randomIdx];
+				}
+				
+				return hexStr;
+			}
+		}
+		
+		class HandlebarsHelper {
+			constructor() {
+				
+			}
+			
+			getTemplateHtml(templateId, object) {
+				var source = $(templateId).html();
+				var template = Handlebars.compile(source);
+				
+				return template(object);
+			}
+		}
+			
+		class NoteBlock {
+			constructor(title, content, noteBlockTemplateId) {
+				this.title = title;
+				this.content = content;
+				
+				this.handlebarsHelper = new HandlebarsHelper();
+				
+				this.color = hg.generateHex();
+				
+				this.colorStyle = 'background: #' + this.color;
+				
+				this.noteBlockTemplateId = noteBlockTemplateId || '#noteBlockTemplate';
+			}
+			
+			getColor() {
+				return this.color;
+			}
+			
+			render() {
+				var html = this.handlebarsHelper.getTemplateHtml(this.noteBlockTemplateId, this);
+				
+				$('#nbArea').append(html);
+			}
+		}
+
+		function addNoteBlocks() {
+			// add note blocks
+			var noteBlocks = [];
+			
+			/*for (var i = 0; i < 10; i++) {
+				var nb = new NoteBlock('Title' + i, i * i);
+				noteBlocks.push(nb);
+			}*/
+			
+			$('.dropdownList li').each(function(index, el) {
+				//console.log($(el).find('a').text(), $(el).find('a').prop('href'));
+
+				var text = $(el).find('a').text();
+				var val = $(el).find('a').prop('href');
+
+				noteBlocks.push(new NoteBlock(text, val));
+			});
+
+			for (var idx in noteBlocks) {
+				var nb = noteBlocks[idx];
+				
+				nb.render();
+			}
+
+		}
+		
+		function init() {
+			window.hg = new HexGen(0);
+			
+			addNoteBlocks();
+			
+			// handlebars - progress bar template
+			window.hbh = new HandlebarsHelper();
+			var html = hbh.getTemplateHtml('#progressBarTemplate', {});
+			$('#progress-bar-area').append(html);
+		}
+		
+		
+		//init function
+		init();
+	})();
+</script>
+	
+</html>

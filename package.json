@@ -1,0 +1,31 @@
+{
+  "name": "d3demos",
+  "version": "1.0.0",
+  "description": "d3 tests and demos",
+  "main": "npm",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browser-sync": "^1.1.0",
+    "grunt-contrib-compass": "^0.9.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "lite-server": "^2.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "lite-server", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garrettwong/D3demos.git"
+  },
+  "keywords": [
+    "d3"
+  ],
+  "author": "garrettwong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garrettwong/D3demos/issues"
+  },
+  "homepage": "https://github.com/garrettwong/D3demos#readme"
+}

@@ -1,0 +1,17 @@
+$text-color: #333;
+$width: 120px;
+
+/* CSS Rotations */	
+.rotateText { 
+    color: $text-color; 
+    text-transform: lowercase;
+    font-weight: bolder;
+    border-radius: 4px;
+    -webkit-animate: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    width: $width;
+}
+.rotateText:hover {
+    transition: ease 1s;
+    -webkit-transform: rotate(-90deg);
+}
