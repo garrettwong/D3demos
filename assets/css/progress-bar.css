@@ -20,7 +20,7 @@ body {
 }*/
 .container .progress {
   margin: 0 auto;
-  width: 400px; }
+  width: 100%; }
 
 .progress {
   padding: 4px;
