@@ -23,8 +23,45 @@
 
 	</div>
 	
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="../node_modules/mousetrap/mousetrap.min.js"></script>
 	<script src="../d3.js"></script>
 	<script src="circle-motion.js"></script>
+
+	<script>
+		// Image Templating and MouseTrap bindings
+		function Image(x, y, width, height, url) {
+			this.x = x;
+			this.y = y;
+			this.width = width;
+			this.height = height;
+			this.url = url;
+		}
+		var image1 = new Image(50, 50, 50, 50, 'cat.png');
+		
+		
+		// JQuery keydown/keyup
+		(function() {
+			window.pressedKeys = [];
+
+			$(document).on('keydown', function (event) {
+				var isPressed = pressedKeys[event.keyCode];
+				console.log(event.keyCode);
+				if (!isPressed) {
+					isPressed = 1;
+					pressedKeys[event.keyCode] = isPressed;
+				}
+			});
+
+			$(document.body).on('keyup', function (event) {
+				var isPressed = 0;
+				pressedKeys[event.keyCode] = isPressed;
+			});
+		})();
+	</script>
+	<script>
+	</script>
+
 	<script>
 		(function() {
 			circleChart();

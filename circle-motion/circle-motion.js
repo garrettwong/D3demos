@@ -16,8 +16,12 @@ function circleChart() {
         transitionOn: true,
         
         updateInterval: 1000,
+
+        imageUpdateInterval: 5,
         
-        onCollisionIncreaseRate: 1.01
+        onCollisionIncreaseRate: 1.01,
+
+        gameOver: false
     };
 
     function ball(x, y, vx, vy, radius, color) {
@@ -105,6 +109,7 @@ function circleChart() {
         };
 
         function circleTransition() {
+            if (AppState.gameOver) return;
 
             // movement or no movement
             if (!AppState.transitionOn) {
@@ -180,9 +185,9 @@ function circleChart() {
         var imgs = svg.selectAll("image").data([0]);
         imgs.enter()
             .append("svg:image")
-            .attr("xlink:href", "cat.png")
-            .attr("x", "60")
-            .attr("y", "60")
+            .attr("xlink:href", image1.url)
+            .attr("x", image1.x)
+            .attr("y", image1.y)
             .attr("width", "50")
             .attr("height", "50")
 
@@ -191,34 +196,88 @@ function circleChart() {
             });
 
         function imageTransition() {
-            console.log('transit');
+            // update image1 positions
+            if (AppState.gameOver) return;
+            updateImage();
+            checkImageCollision();
 
             var img = d3.selectAll('image');
 
             // movement or no movement
             if (!AppState.transitionOn) {
                 d3.selectAll('image').transition()
-                    .duration(AppState.updateInterval)
+                    .duration(AppState.imageUpdateInterval)
                     .each("end", function () {
                         imageTransition();
                     });
             } else {
-                d3.selectAll('image').transition().duration(AppState.updateInterval)
+                d3.selectAll('image').transition().duration(AppState.imageUpdateInterval)
                     .attr("x", function (d) {
-                        console.log(d);
-
-                        d += 15;
+                        d = image1.x;
 
                         return d;
                     })
                     .attr("y", function (d) {
-                        d += 55;
+                        d = image1.y;
 
                         return d;
                     })
                     .each("end", function () {
                         imageTransition();
                     });
+            }
+        }
+        function updateImage() {
+            var KEYMAP = {
+                A: 65,
+                D: 68,
+                W: 87,
+                S: 83,
+
+                LEFT: 37,
+                UP: 38,
+                RIGHT: 39,
+                DOWN: 40
+            };
+
+            // Left
+            if (pressedKeys[KEYMAP.A] === 1) {
+                if (image1.x > 0) {
+                    image1.x -= 10;
+                }
+            }
+            if (pressedKeys[KEYMAP.D] === 1) {
+                if (image1.x + image1.width < grid.width) {
+                    image1.x += 10;
+                }
+            }
+            if (pressedKeys[KEYMAP.W] === 1) {
+                if (image1.y > 0) {
+                    image1.y -= 10;
+                }
+            }
+            if (pressedKeys[KEYMAP.S] === 1) {
+                if (image1.y + image1.height < grid.height) {
+                    image1.y += 10;
+                }
+            }
+        }
+        function checkImageCollision() {
+            var image = image1;
+            var circle1 = {radius: image.width/2, x: image.x + (image.width/2), y: image.y + (image.width/2) };
+
+            for (var i = 0; i < circleData.length; i++) {
+                var c = circleData[i];
+
+                var dx = circle1.x - c.x;
+                var dy = circle1.y - c.y;
+                var distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < circle1.radius + c.radius) {
+                    // collision detected!
+                    console.log('collis');
+                    AppState.gameOver = true;
+                }
             }
         }
 
