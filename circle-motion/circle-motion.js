@@ -2,11 +2,11 @@ function circleChart() {
     $('svg').remove();
 
     var JSONData = [
-        new Ball(250, 101, -3, -5, 20, 'blue'),
-        new Ball(255, 125, 1, -14, 9, 'silver'),
+        new Ball(250, 101, -3, -3, 20, 'blue'),
+        new Ball(255, 125, 1, -10, 9, 'silver'),
         new Ball(260, 233, -21, 3, 24, 'gold'),
         new Ball(275, 241, 1, 4, 35, 'orange'),
-        new Ball(240, 351, -1, -17, 15, 'green'),
+        new Ball(240, 351, -1, -12, 15, 'green'),
         new Ball(230, 361, 12, 1, 3, 'red'),
     ];
 
@@ -299,11 +299,16 @@ function circleChart() {
         refreshGraph();
 
         var score = 0;
-        setInterval(function() {
+        var intervalId = setInterval(function() {
             if (!AppState.gameOver) {
                 $('h1').html(score);
 
                 score+= 1;
+            } else {
+                Scoreboard.add(score-1);
+                refreshScoreboard();
+
+                clearInterval(intervalId);
             }
         }, 200);
     })();
