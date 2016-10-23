@@ -1,21 +1,24 @@
 function circleChart() {
+    $('svg').remove();
+
     var JSONData = [
-        new ball(250, 101, -3, -5, 20, 'blue'),
-        new ball(255, 125, 1, -14, 9, 'silver'),
-        new ball(260, 233, -21, 3, 24, 'gold'),
-        new ball(275, 241, 1, 4, 35, 'orange'),
-        new ball(240, 351, -1, -17, 15, 'green'),
-        new ball(230, 361, 12, 1, 3, 'red'),
+        new Ball(250, 101, -3, -5, 20, 'blue'),
+        new Ball(255, 125, 1, -14, 9, 'silver'),
+        new Ball(260, 233, -21, 3, 24, 'gold'),
+        new Ball(275, 241, 1, 4, 35, 'orange'),
+        new Ball(240, 351, -1, -17, 15, 'green'),
+        new Ball(230, 361, 12, 1, 3, 'red'),
     ];
 
     var grid = {
         width: 600,
         height: 500
     };
+
     var AppState = {
         transitionOn: true,
         
-        updateInterval: 1000,
+        updateInterval: 100,
 
         imageUpdateInterval: 5,
         
@@ -24,15 +27,9 @@ function circleChart() {
         gameOver: false
     };
 
-    function ball(x, y, vx, vy, radius, color) {
-        this.x = x;
-        this.y = y;
-        this.vx = vx;
-        this.vy = vy;
-        this.radius = radius;
-        this.color = color;
-    }
-
+    var image1 = new Image(50, 50, 50, 50, 'cat.png');
+    
+    
     (function () {
         // circleData
         var circleData = JSONData.slice();
@@ -284,7 +281,7 @@ function circleChart() {
         // click events
         d3.selectAll("#add-data")
             .on("click", function () {
-                var obj = new ball(61, Math.floor(50 + Math.random() * 1), 1, 1, 20, 'lime');
+                var obj = new Ball(61, Math.floor(50 + Math.random() * 1), 1, 1, 20, 'lime');
 
                 circleData.push(obj);
 
@@ -300,8 +297,14 @@ function circleChart() {
             });
 
         refreshGraph();
-        // setInterval(refreshGraph, 500);
+
+        var score = 0;
+        setInterval(function() {
+            if (!AppState.gameOver) {
+                $('h1').html(score);
+
+                score+= 1;
+            }
+        }, 200);
     })();
 }
-
-

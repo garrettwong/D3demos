@@ -18,6 +18,8 @@
 		<button id="add-data" class="pure-button">Add New Circle</button>
 		<button id="btnStartMotion" class="pure-button">Start Motion</button>
 		<button id="btnStopMotion" class="pure-button">Stop Motion</button>
+		<button id="btnStartOver" class="pure-button">Start Over</button>
+
 
 		<div id="demo"></div>
 
@@ -26,20 +28,12 @@
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="../node_modules/mousetrap/mousetrap.min.js"></script>
 	<script src="../d3.js"></script>
+
+	<script src="ball.js"></script>
+	<script src="image.js"></script>
 	<script src="circle-motion.js"></script>
 
 	<script>
-		// Image Templating and MouseTrap bindings
-		function Image(x, y, width, height, url) {
-			this.x = x;
-			this.y = y;
-			this.width = width;
-			this.height = height;
-			this.url = url;
-		}
-		var image1 = new Image(50, 50, 50, 50, 'cat.png');
-		
-		
 		// JQuery keydown/keyup
 		(function() {
 			window.pressedKeys = [];
@@ -65,6 +59,8 @@
 	<script>
 		(function() {
 			circleChart();
+
+			$('#btnStartOver').click(circleChart);
 		})();
 	</script>
 </body>
