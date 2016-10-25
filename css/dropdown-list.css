@@ -1,6 +1,7 @@
 .dropdown {
     position: relative;
     color: #333;
+    padding: 0 10px 10px 10px;
 }
 .dropdown ul.dropdownList {
     margin: 0;
@@ -8,7 +9,7 @@
 }
 .dropdown ul.dropdownList {
     display: none;
-    top: 43px;
+    top: 42px;
     right: -10px;
     color: #333;
 }
@@ -33,6 +34,7 @@
 }
 .dropdownList li > a { 
     text-decoration: none; 
-    padding: 20px;
+    padding: 6px;
     cursor: pointer;
+    display: block;
 }
