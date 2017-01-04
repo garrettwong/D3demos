@@ -1,0 +1,20 @@
+{
+  "name": "My Apps",
+  "children": [
+    {
+      "name": "Level 2: A",
+      "children": [
+        {
+          "name": "Son of A",
+          "url": "http://google.com"
+        },
+        {
+          "name": "Daughter of A"
+        }
+      ]
+    },
+    {
+      "name": "Level 2: B"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+html, body {
+    min-height: 100%;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+.node:hover circle {
+    cursor: pointer;
+    stroke-width: 4px;
+    transition: background 0.5 ease;
+}
+
+.node text { font: 12px sans-serif; }
+.node:hover text { font-weight: 800; }
+
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}

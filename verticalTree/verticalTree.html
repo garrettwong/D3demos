@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="verticalTree.css" rel="stylesheet" />
+</head>
+
+<body ng-app="app" ng-controller="appController">
+    <div>
+        <input type="text" ng-model="linkage" />
+
+        <input type="text" ng-model="a" />
+        <input type="text" ng-model="b" />
+        <input type="text" ng-model="c" />
+        <input type="text" ng-model="d" />
+
+        <span>{{output}}</span>
+    </div>
+
+    <svg id="svg" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid"></svg>
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <script src="verticalTree.js"></script>
+
+    <script src="verticalTreeAngularApp.js"></script>
+</body>
+
+
+</html>
