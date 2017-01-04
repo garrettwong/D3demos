@@ -15,8 +15,6 @@ d3.select(window).on('resize', resize);
 function resize() {
     if (!treeDataRef) return;
 
-    d3.select('svg').selectAll("*").remove();
-
     update(treeDataRef);
 }
 
@@ -30,6 +28,8 @@ var margin = 40,
     sizeReductionFactor = 1.5;
 
 function update(treeData) {
+    d3.select('svg').selectAll("*").remove();
+
     var width = parseInt(d3.select('html').style('width')) / sizeReductionFactor - margin * 2,
         height = parseInt(d3.select('html').style('height')) / sizeReductionFactor - margin * 2;
 

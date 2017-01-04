@@ -2,6 +2,7 @@
 
 <head>
     <link href="verticalTree.css" rel="stylesheet" />
+    <link href="addNodeForm/addNodeForm.css" rel="stylesheet" />
 </head>
 
 <body ng-app="app" ng-controller="appController">
@@ -10,8 +11,12 @@
 
         <input type="text" ng-model="a" />
         <input type="text" ng-model="b" />
-        <input type="text" ng-model="c" />
-        <input type="text" ng-model="d" />
+
+        <div class="form-group former">
+            <input type="text" id="name" ng-model="name" placeholder="name" />
+            <input type="text" id="url" ng-model="url" placeholder="url" />
+            <button id="addNode">Add Node</button>
+        </div>
 
         <span>{{output}}</span>
     </div>
@@ -21,6 +26,7 @@
     <script src="../node_modules/angular/angular.js"></script>
     <script src="//d3js.org/d3.v4.min.js"></script>
     <script src="verticalTree.js"></script>
+    <script src="addNodeForm/addNodeForm.js"></script>
 
     <script src="verticalTreeAngularApp.js"></script>
 </body>
