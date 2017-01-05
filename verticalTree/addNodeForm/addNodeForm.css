@@ -1,4 +1,4 @@
-.form-group.former {
+.form-group.addNodeForm {
   border: 2px solid #f9f9f9;
   border-radius: 5px;
   display: inline-block;
@@ -6,17 +6,17 @@
   box-shadow: 3px 2px 3px #c4c2cc;
 }
 
-.form-group.former::before {
+.form-group.addNodeForm::before {
   content: "Add Node Form";
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.form-group.former input {
+.form-group.addNodeForm input {
   display: block;
   margin: 10px;
 }
 
-.form-group.former button:hover {
+.form-group.addNodeForm button:hover {
   border: 1px solid #294099;
   cursor: pointer;
 }

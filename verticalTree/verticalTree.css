@@ -2,6 +2,8 @@ html, body {
     min-height: 100%;
 }
 
+svg { border: 1px dotted #222; }
+
 .node circle {
   fill: #fff;
   stroke: steelblue;

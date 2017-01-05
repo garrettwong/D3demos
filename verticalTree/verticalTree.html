@@ -3,16 +3,25 @@
 <head>
     <link href="verticalTree.css" rel="stylesheet" />
     <link href="addNodeForm/addNodeForm.css" rel="stylesheet" />
+    <link href="linkModificationForm/linkModificationForm.css" rel="stylesheet" />
 </head>
 
 <body ng-app="app" ng-controller="appController">
     <div>
-        <input type="text" ng-model="linkage" />
+        <div class="form-group linkModificationForm">
+            <form action="" method="post">
+                <label for="field2"><span>Email <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+                <label><span>Telephone</span>
+                <input type="text" class="tel-number-field" name="tel_no_1" value="" maxlength="4" />-<input type="text" class="tel-number-field" name="tel_no_2" value="" maxlength="4"  />-<input type="text" class="tel-number-field" name="tel_no_3" value="" maxlength="10"  /></label>
+            
+                </label>
 
-        <input type="text" ng-model="a" />
-        <input type="text" ng-model="b" />
+                <label><span>&nbsp;</span><input type="submit" value="Submit" /></label>
+            </form>
 
-        <div class="form-group former">
+        </div>
+
+        <div class="form-group addNodeForm">
             <input type="text" id="name" ng-model="name" placeholder="name" />
             <input type="text" id="url" ng-model="url" placeholder="url" />
             <button id="addNode">Add Node</button>
@@ -27,6 +36,7 @@
     <script src="//d3js.org/d3.v4.min.js"></script>
     <script src="verticalTree.js"></script>
     <script src="addNodeForm/addNodeForm.js"></script>
+    <script src="linkModificationForm/linkModificationForm.js"></script>
 
     <script src="verticalTreeAngularApp.js"></script>
 </body>
