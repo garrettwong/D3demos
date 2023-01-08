@@ -1,133 +1,244 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
 
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  position: relative;
-  width: 960px;
-}
+<head>
+  <meta charset="utf-8">
+  <style>
+    .google-green {
+      color: #34A853
+    }
 
-.axis text {
-  font: 10px sans-serif;
-}
+    .google-blue {
+      color: #4285F4
+    }
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
+    .google-yellow {
+      color: #fbbc05;
+    }
 
-.bar {
-  fill: green;
-  fill-opacity: .9;
-}
+    .google-red {
+      color: #ea4335
+    }
 
-.x.axis path {
-  display: none;
-}
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      position: relative;
+      /* background: url('https://wallpapers.com/images/hd/mickey-mouse-and-friends-l988p88rans2gnj8.jpg'); */
+      /* background: url('https://m.media-amazon.com/images/I/51AwwyFvGFL._AC_SY580_.jpg'); */
+      background: url('https://m.media-amazon.com/images/I/7108HSmwBeL.jpg');
+      background-size: cover;
+      width: 960px;
+      padding: 30px;
+      margin-top: 40px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-label {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
+    svg {
+      border: 1px solid #000;
+    }
 
-</style>
-<label><input id="sort" type="checkbox"> Sort values</label>
-<script src="d3.js"></script>
-<script>
+    .axis text {
+      font: 10px sans-serif;
+    }
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
 
-var formatPercent = d3.format(".0%");
+    .bar {
+      fill: #ea4335;
+      fill-opacity: .9;
+    }
 
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1, 1);
+    .x.axis path {
+      display: none;
+    }
 
-var y = d3.scale.linear()
-    .range([height, 0]);
+    #sort {
+      padding: 6px;
+    }
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
+    label {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(formatPercent);
+<body>
+  <input id="sort" type="checkbox"> Sort values
+  <br />
+  <button id="changeColor">Change Color</button>
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  <script src="d3.js"></script>
+  <script>
+    const COLORS = {
+      GREEN: '#34A853',
+      BLUE: '#4285F4',
+      YELLOW: '#fbbc05',
+      RED: '#ea4335'
+    }
+    const margin = { top: 20, right: 20, bottom: 30, left: 40 },
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
+    const TRANSITION_TIME = 500;
 
-d3.tsv("sortable-bar-chart.tsv", function(error, data) {
+    var formatPercent = d3.format(".0%");
 
-  data.forEach(function(d) {
-    d.frequency = +d.frequency;
-  });
+    var x = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .1, 1);
 
-  x.domain(data.map(function(d) { return d.letter; }));
-  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+    var y = d3.scale.linear()
+      .range([height, 0]);
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+    var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
 
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Frequency");
+    var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .tickFormat(formatPercent);
 
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.letter); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
+    var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  d3.select("#sort").on("change", change);
+    // temp 
+    addBouncingBall(svg);
 
-  var sortTimeout = setTimeout(function() {
-    d3.select("#sort").property("checked", true).each(change);
-  }, 6000);
+    d3.tsv("sortable-bar-chart.tsv", function (error, data) {
 
+      data.forEach(function (d) {
+        d.frequency = +d.frequency;
+      });
 
-  function change() {
-    clearTimeout(sortTimeout);
+      x.domain(data.map(function (d) { return d.letter; }));
+      y.domain([0, d3.max(data, function (d) { return d.frequency; })]);
 
-    // Copy-on-write since tweens are evaluated after a delay.
-    var x0 = x.domain(data.sort(this.checked
-        ? function(a, b) { return b.frequency - a.frequency; }
-        : function(a, b) { return d3.ascending(a.letter, b.letter); })
-        .map(function(d) { return d.letter; }))
-        .copy();
+      svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
 
-    var transition = svg.transition().duration(750),
-        delay = function(d, i) { return i * 50; };
+      svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Frequency");
 
-    transition.selectAll(".bar")
-        .delay(delay)
-        .attr("x", function(d) { return x0(d.letter); });
+      svg.selectAll(".bar")
+        .data(data)
+        .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", function (d) { return x(d.letter); })
+        .attr("width", x.rangeBand())
+        .attr("y", function (d) { return y(d.frequency); })
+        .attr("height", function (d) { return height - y(d.frequency); });
 
-    transition.select(".x.axis")
-        .call(xAxis)
-      .selectAll("g")
-        .delay(delay);
-  }
-});
+      d3.select("#sort").on("change", change);
+      d3.select("#changeColor").on("click", changeColor);
 
-</script>
+      var sortTimeout = setTimeout(function () {
+        d3.select("#sort").property("checked", true).each(change);
+      }, 6000);
+
+      function changeColor() {
+        var transition = svg.transition().duration(TRANSITION_TIME),
+          delay = function (d, i) { return i * 50; };
+
+        let colorNames = Object.keys(COLORS);
+        let randomIndex = Math.floor(Math.random() * colorNames.length)
+        transition.selectAll(".bar")
+          .delay(delay)
+          .style("fill", colorNames[randomIndex]);
+        // .attr("x", function (d) { return x0(d.letter); });
+      }
+
+      function change() {
+        clearTimeout(sortTimeout);
+
+        // Copy-on-write since tweens are evaluated after a delay.
+        var x0 = x.domain(data.sort(this.checked
+          ? function (a, b) { return b.frequency - a.frequency; }
+          : function (a, b) { return d3.ascending(a.letter, b.letter); })
+          .map(function (d) { return d.letter; }))
+          .copy();
+
+        var transition = svg.transition().duration(TRANSITION_TIME),
+          delay = function (d, i) { return i * 50; };
+
+        transition.selectAll(".bar")
+          .delay(delay)
+          .attr("x", function (d) { return x0(d.letter); });
+
+        transition.select(".x.axis")
+          .call(xAxis)
+          .selectAll("g")
+          .delay(delay);
+      }
+    });
+
+    function addBouncingBall(svg) {
+      const width = 600;
+      const height = 400;
+      const borderWidth = 10;
+      const ballRadius = 30;
+      const drawInterval = 1;
+      const speedMultiplier = 1;
+
+      let rect = svg.insert("rect")
+        .attr("x", borderWidth)
+        .attr("y", borderWidth)
+        .attr("width", width - 2 * borderWidth)
+        .attr("height", height - 2 * borderWidth)
+        .attr("fill", "transparent");
+
+      let ball = svg.insert("circle")
+        .attr("cx", width / 2)
+        .attr("cy", height / 2)
+        .attr("r", ballRadius)
+        .attr("fill", "royalblue");
+
+      // Randomly build a vector between 0 and 360. From that angle, get the X and Y
+      // movement.
+      let angle = 360.0 * Math.random();
+      let diffX = Math.sin(angle);
+      let diffY = Math.cos(angle);
+
+      function moveX() {
+        let posX = Number(d3.select(this).attr("cx"));
+        let nextX = posX + diffX * speedMultiplier;
+        if (nextX < borderWidth + ballRadius || nextX > width - borderWidth - ballRadius) {
+          diffX = -1 * diffX;
+        }
+        return nextX;
+      }
+
+      function moveY() {
+        let posY = Number(d3.select(this).attr("cy"));
+        let nextY = posY + diffY * speedMultiplier;
+        if (nextY < borderWidth + ballRadius || nextY > height - borderWidth - ballRadius) {
+          diffY = -1 * diffY;
+        }
+        return nextY;
+      }
+
+      // Move the (x, y) coordinates of the ball every "tick".
+      setInterval(function () {
+        ball.attr("cx", moveX).attr("cy", moveY);
+      }, drawInterval);
+    }
+
+  </script>
+</body>

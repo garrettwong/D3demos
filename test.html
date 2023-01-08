@@ -69,6 +69,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+
 var layer = svg.selectAll(".layer")
     .data(layers)
   .enter().append("g")
