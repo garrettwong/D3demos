@@ -3,12 +3,21 @@
 
 <head>
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-	
+
 	<link href="circle-motion.css" rel="stylesheet" />
 	<style>
 		/* http://purecss.io/start/ */
-		#demo { display: inline-block; }
-		#scoreboard {display: block;} 
+		#demo {
+			display: inline-block;
+		}
+
+		#scoreboard {
+			display: block;
+		}
+
+		svg {
+			background: url('https://www.google.nl/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png') no-repeat;
+		}
 	</style>
 </head>
 
@@ -16,7 +25,7 @@
 	<header>
 		<h1>D3 Circle Motion</h1>
 	</header>
-	
+
 	<div class="main-station">
 		<div>
 			<button id="add-data" class="pure-button">Add New Circle</button>
@@ -32,7 +41,7 @@
 		</div>
 
 	</div>
-	
+
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="../node_modules/mousetrap/mousetrap.min.js"></script>
 	<script src="../d3.js"></script>
@@ -43,7 +52,7 @@
 
 	<script>
 		// JQuery keydown/keyup
-		(function() {
+		(function () {
 			window.pressedKeys = [];
 
 			$(document).on('keydown', function (event) {
@@ -63,7 +72,7 @@
 	</script>
 
 	<script>
-		(function() {
+		(function () {
 			circleChart();
 
 			$('#btnStartOver').click(circleChart);
@@ -82,15 +91,15 @@
 			window.haha = scores;
 
 			// sort by highest to lowest
-			scores.sort(function(a, b) {
-				console.log(a,b);
+			scores.sort(function (a, b) {
+				console.log(a, b);
 				return Number.parseInt(b) - Number.parseInt(a);
 			});
 
 			for (var i = 0; i < scores.length; i++) {
 				var $tr = $('<tr>');
 				var $td = $('<td>');
-					$td.html(scores[i]);
+				$td.html(scores[i]);
 
 				$tr.append($td);
 
@@ -98,9 +107,9 @@
 			}
 		}
 
-		(function() {
+		(function () {
 			window.refreshScoreboard = refreshScoreboard;
-			
+
 			refreshScoreboard();
 		})();
 	</script>

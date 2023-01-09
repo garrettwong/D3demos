@@ -59,7 +59,7 @@ function circleChart() {
             .attr("width", grid.width)
             .attr("height", grid.height)
             .style("stroke", bordercolor)
-            .style("fill", "#f2f2f2")
+            .style("fill", "transparent") // .style("fill", "#f2f2f2")
             .style("stroke-width", border);
 
         var refreshGraph = function () {
