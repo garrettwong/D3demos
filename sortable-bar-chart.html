@@ -113,7 +113,7 @@
     // temp 
     addBouncingBall(svg);
 
-    d3.tsv("sortable-bar-chart.tsv", function (error, data) {
+    d3.tsv("assets/sortable-bar-chart.tsv", function (error, data) {
 
       data.forEach(function (d) {
         d.frequency = +d.frequency;

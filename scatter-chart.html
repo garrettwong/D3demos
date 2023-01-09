@@ -3,117 +3,135 @@
 
 <head>
 	<style>
-	html, body { height: 100%; }
-	
-	body {
-		font-family: Helvetica;
-		margin: 0;
-		padding: 0;
-	}
-	
-	header {
-		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b5bdc8+0,828c95+36,28343b+100;Grey+Black+3D */
-		background: rgb(181,189,200); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(181,189,200,1) 0%, rgba(130,140,149,1) 36%, rgba(40,52,59,1) 100%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to bottom,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-9 */
-		
-		position: fixed;
-		width: 100%;
-		z-index:1;
-	
-	}
-	
-	header h1 {
-		-webkit-margin-before: 0em;
-		-webkit-margin-after: 0em;
-		-webkit-margin-start: 0px;
-		-webkit-margin-end: 0px;
-		
-		color: #222;
-		padding: 10px;
-		margin-left:12px;
-	}
-	
-	header .overlay {
-		width: 100%;
-		height: 30px;
-		position: fixed;
-		
-		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100&1+0,0+100;Blue+to+Transparent */
-		background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
-	}
-	
-	.main-station {
-		position: relative;
-		top: 57px;
-		width: 70%;
-		
-		padding:20px;
-		overflow-y: scroll;
-	}
-	
-	.control-station {
-		position: fixed;
-		right: 0;
-		top: 57px;
-		
-		width:30%;
-		height: 100%;
-		
-		padding-left:20px;
-		
-		color: #fff;
-		
-		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-		background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+		html,
+		body {
+			height: 100%;
+		}
 
-	}
-	
-	.control-station button {
-		background: #fff;
-	}
+		body {
+			font-family: Helvetica;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b5bdc8+0,828c95+36,28343b+100;Grey+Black+3D */
+			background: rgb(181, 189, 200);
+			/* Old browsers */
+			background: -moz-linear-gradient(top, rgba(181, 189, 200, 1) 0%, rgba(130, 140, 149, 1) 36%, rgba(40, 52, 59, 1) 100%);
+			/* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(181, 189, 200, 1) 0%, rgba(130, 140, 149, 1) 36%, rgba(40, 52, 59, 1) 100%);
+			/* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(181, 189, 200, 1) 0%, rgba(130, 140, 149, 1) 36%, rgba(40, 52, 59, 1) 100%);
+			/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b5bdc8', endColorstr='#28343b', GradientType=0);
+			/* IE6-9 */
+
+			position: fixed;
+			width: 100%;
+			z-index: 1;
+
+		}
+
+		header h1 {
+			-webkit-margin-before: 0em;
+			-webkit-margin-after: 0em;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+
+			color: #222;
+			padding: 10px;
+			margin-left: 12px;
+		}
+
+		header .overlay {
+			width: 100%;
+			height: 30px;
+			position: fixed;
+
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100&1+0,0+100;Blue+to+Transparent */
+			background: -moz-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 0) 100%);
+			/* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 0) 100%);
+			/* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 0) 100%);
+			/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#007db9e8', GradientType=0);
+			/* IE6-9 */
+		}
+
+		.main-station {
+			position: relative;
+			top: 57px;
+			width: 70%;
+
+			padding: 20px;
+			overflow-y: scroll;
+		}
+
+		.control-station {
+			position: fixed;
+			right: 0;
+			top: 57px;
+
+			width: 30%;
+			height: 100%;
+
+			padding-left: 20px;
+
+			color: #fff;
+
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+			background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+			/* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+			/* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+			/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+			/* IE6-9 */
+
+		}
+
+		.control-station button {
+			background: #fff;
+		}
 	</style>
-	
+
 	<style>
-		
-	.add-data { cursor: pointer; padding:10px; }
+		.add-data {
+			cursor: pointer;
+			padding: 10px;
+		}
 
-	/* tell the SVG path to be a thin blue line without any area fill */
-	path {
-		stroke: steelblue;
-		stroke-width: 1;
-		fill: none;
-	}
+		/* tell the SVG path to be a thin blue line without any area fill */
+		path {
+			stroke: steelblue;
+			stroke-width: 1;
+			fill: none;
+		}
 
-	.axis {
-		shape-rendering: crispEdges;
-	}
+		.axis {
+			shape-rendering: crispEdges;
+		}
 
-	.x.axis line {
-		stroke: lightgrey;
-	}
+		.x.axis line {
+			stroke: lightgrey;
+		}
 
-	.x.axis .minor {
-		stroke-opacity: .5;
-	}
+		.x.axis .minor {
+			stroke-opacity: .5;
+		}
 
-	.x.axis path {
-		display: none;
-	}
+		.x.axis path {
+			display: none;
+		}
 
-	.y.axis line, .y.axis path {
-		fill: none;
-		stroke: #000;
-	}
-
+		.y.axis line,
+		.y.axis path {
+			fill: none;
+			stroke: #000;
+		}
 	</style>
 </head>
 
@@ -122,7 +140,7 @@
 		<div class="overlay"></div>
 		<h1>D3 Testing</h1>
 	</header>
-	
+
 	<div class="main-station">
 
 		<button class="add-data">Add Data</button>
@@ -134,12 +152,12 @@
 		<div id="line-graph-demo"></div>
 
 		<div id="line-clickable"></div>
-		
+
 	</div>
-	
+
 	<div class="control-station">
 		<h3>Scroll To</h3>
-		
+
 		<button id="demo2">Scatter</button>
 		<button id="demo3">Scatter</button>
 		<button id="demo4">Scatter</button>
@@ -149,72 +167,166 @@
 <script src="d3.js"></script>
 
 <script>
-var lineClickable = function() {
+	var lineClickable = function () {
 
-	var JSONData = [
-		{ "id": 1, "created_at": "Sun May 05 2013", "amount": 97},
-		{ "id": 2, "created_at": "Mon May 13 2013", "amount": 15},
-		{ "id": 3, "created_at": "Thu Jun 06 2013", "amount": 80},
-		{ "id": 4, "created_at": "Thu May 09 2013", "amount": 24},
-		{ "id": 5, "created_at": "Mon Jul 01 2013", "amount": 26},
-		{ "id": 6, "created_at": "Mon Jul 01 2013", "amount": 12},
-		{ "id": 7, "created_at": "Mon Aug 01 2013", "amount": 22},
-		{ "id": 8, "created_at": "Mon Aug 01 2013", "amount": 12},
-	];
+		var JSONData = [
+			{ "id": 1, "created_at": "Sun May 05 2013", "amount": 97 },
+			{ "id": 2, "created_at": "Mon May 13 2013", "amount": 15 },
+			{ "id": 3, "created_at": "Thu Jun 06 2013", "amount": 80 },
+			{ "id": 4, "created_at": "Thu May 09 2013", "amount": 24 },
+			{ "id": 5, "created_at": "Mon Jul 01 2013", "amount": 26 },
+			{ "id": 6, "created_at": "Mon Jul 01 2013", "amount": 12 },
+			{ "id": 7, "created_at": "Mon Aug 01 2013", "amount": 22 },
+			{ "id": 8, "created_at": "Mon Aug 01 2013", "amount": 12 },
+		];
 
-	(function() {
-		var data = JSONData.slice()
-		var format = d3.time.format("%a %b %d %Y");
-		
-		console.log(data);
+		(function () {
+			var data = JSONData.slice()
+			var format = d3.time.format("%a %b %d %Y");
+
+			console.log(data);
+
+			var m = [80, 80, 80, 80]; // margin
+			var w = 1000 - m[1] - m[3]; // width
+			var h = 400 - m[0] - m[2]; // height
+
+
+			var dateFn = function (d) {
+				return format.parse(d.created_at)
+			};
+
+			var x = d3.time.scale()
+				.range([10, w])
+				.domain(d3.extent(data, dateFn));
+
+			// X scale will fit all values from data[] within pixels 0-w
+			//var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
+
+			// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
+			var y = d3.scale.linear().domain([0, 100]).range([h, 0]);
+
+			var lineCoords = d3.svg.line()
+				.x(function (d, i) {
+					console.log(format.parse(d.created_at));
+					return x(dateFn(d));// x(d.id);//x(d.id);
+				})
+				.y(function (d, i) {
+					console.log(d, i);
+					return y(d.amount);
+				});
+
+
+			// SVG
+			var graph = d3.select("#line-clickable").append("svg:svg")
+				.attr("width", w + m[1] + m[3])
+				.attr("height", h + m[0] + m[2])
+				.attr("border", "black")
+				.append("svg:g")
+				.attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+			// create yAxis
+			var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+
+			// Add the x-axis.
+			graph.append("svg:g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + h + ")")
+				.call(xAxis);
+
+
+
+			// create left yAxis
+			var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+			// Add the y-axis to the left
+			graph.append("svg:g")
+				.attr("class", "y axis")
+				.attr("transform", "translate(-25,0)")
+				.call(yAxisLeft);
+
+			// Add the line by appending an svg:path element with the data line we created above
+			// do this AFTER the axes above so that the line is above the tick-lines
+			graph.append("svg:path").attr("d", lineCoords(data)).attr("class", "brian");
+
+			d3.selectAll(".brian").on("click", function () {
+				alert("LOSA");
+			})
+		})();
+	}();
+
+	function line() {
+		d3.json("assets/d3line.json", function (data) {
+			var canvas = d3.select("#line-demo").append("svg")
+				.attr("width", 500)
+				.attr("height", 400)
+				.attr("border", "black")
+
+			var group = canvas.append("g")
+				.attr("transform", "translate(100,10)")
+
+			var line = d3.svg.line()
+				.x(function (d, i) {
+					return d.x;
+				})
+				.y(function (d, i) {
+					return d.y;
+				});
+
+			group.selectAll("path")
+				.data(data).enter()
+				.append("path")
+				.attr("d", function (d) { return line(d) })
+				.attr("fill", "none")
+				.attr("stroke", "green")
+				.attr("stroke-width", 3);
+		});
+	}
+	line();
+
+
+	function lineGraph() {
 
 		var m = [80, 80, 80, 80]; // margin
 		var w = 1000 - m[1] - m[3]; // width
 		var h = 400 - m[0] - m[2]; // height
 
-
-		var dateFn = function(d) { 
-			return format.parse(d.created_at) 
-		};
-		
-		var x = d3.time.scale()
-			.range([10, w])
-			.domain(d3.extent(data, dateFn));
+		// create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
+		var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
 		// X scale will fit all values from data[] within pixels 0-w
-		//var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
-
+		var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
 		// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-		var y = d3.scale.linear().domain([0, 100]).range([h, 0]);
+		var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
 
-		var lineCoords = d3.svg.line()
-			.x(function(d, i) {
-				console.log(format.parse(d.created_at));
-				return x(dateFn(d));// x(d.id);//x(d.id);
+		// create a line function that can convert data[] into x and y points
+		var line = d3.svg.line()
+			// assign the X function to plot our line as we wish
+			.x(function (d, i) {
+				// verbose logging to show what's actually being done
+				//console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
+				// return the X coordinate where we want to plot this datapoint
+				return x(i);
 			})
-			.y(function(d, i) {
-				console.log(d, i);
-				return y(d.amount);
-			});
+			.y(function (d) {
+				// verbose logging to show what's actually being done
+				//console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
+				// return the Y coordinate where we want to plot this datapoint
+				return y(d);
+			})
 
-
-		// SVG
-		var graph = d3.select("#line-clickable").append("svg:svg")
+		// Add an SVG element with the desired dimensions and margin.
+		var graph = d3.select("#line-graph-demo").append("svg:svg")
 			.attr("width", w + m[1] + m[3])
 			.attr("height", h + m[0] + m[2])
-			.attr("border", "black")
 			.append("svg:g")
 			.attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
 		// create yAxis
 		var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
-
 		// Add the x-axis.
 		graph.append("svg:g")
 			.attr("class", "x axis")
 			.attr("transform", "translate(0," + h + ")")
 			.call(xAxis);
-
 
 
 		// create left yAxis
@@ -227,100 +339,6 @@ var lineClickable = function() {
 
 		// Add the line by appending an svg:path element with the data line we created above
 		// do this AFTER the axes above so that the line is above the tick-lines
-		graph.append("svg:path").attr("d", lineCoords(data)).attr("class", "brian");
-
-		d3.selectAll(".brian").on("click", function () {
-			alert("LOSA");
-		})
-	})();
-}();
-
-function line() {
-	d3.json("d3line.json", function(data) {
-		var canvas = d3.select("#line-demo").append("svg")
-		.attr("width", 500)
-		.attr("height", 400)
-		.attr("border", "black")
-
-		var group = canvas.append("g")
-		.attr("transform", "translate(100,10)")
-
-		var line = d3.svg.line()
-		.x(function(d, i) {
-			return d.x;
-		})
-		.y(function(d, i) {
-			return d.y;
-		}); 
-
-		group.selectAll("path")
-			.data(data).enter()
-			.append("path")
-			.attr("d", function(d){ return line(d) })
-			.attr("fill", "none")
-			.attr("stroke", "green")
-			.attr("stroke-width", 3);
-	});
-}
-line();
-
-
-function lineGraph() {
-
-	var m = [80, 80, 80, 80]; // margin
-	var w = 1000 - m[1] - m[3]; // width
-	var h = 400 - m[0] - m[2]; // height
-
-	// create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
-	var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
-
-	// X scale will fit all values from data[] within pixels 0-w
-	var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
-	// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-	var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
-
-	// create a line function that can convert data[] into x and y points
-	var line = d3.svg.line()
-		// assign the X function to plot our line as we wish
-		.x(function(d,i) { 
-			// verbose logging to show what's actually being done
-			//console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
-			// return the X coordinate where we want to plot this datapoint
-			return x(i); 
-		})
-		.y(function(d) { 
-			// verbose logging to show what's actually being done
-			//console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
-			// return the Y coordinate where we want to plot this datapoint
-			return y(d); 
-		})
-
-		// Add an SVG element with the desired dimensions and margin.
-		var graph = d3.select("#line-graph-demo").append("svg:svg")
-		.attr("width", w + m[1] + m[3])
-		.attr("height", h + m[0] + m[2])
-		.append("svg:g")
-		.attr("transform", "translate(" + m[3] + "," + m[0] + ")");
-
-		// create yAxis
-		var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
-		// Add the x-axis.
-		graph.append("svg:g")
-		.attr("class", "x axis")
-		.attr("transform", "translate(0," + h + ")")
-		.call(xAxis);
-
-
-		// create left yAxis
-		var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
-		// Add the y-axis to the left
-		graph.append("svg:g")
-		.attr("class", "y axis")
-		.attr("transform", "translate(-25,0)")
-		.call(yAxisLeft);
-		
-			// Add the line by appending an svg:path element with the data line we created above
-		// do this AFTER the axes above so that the line is above the tick-lines
 		graph.append("svg:path").attr("d", line(data));
 
 	}
@@ -329,81 +347,81 @@ function lineGraph() {
 
 	function circleChart() {
 		var JSONData = [
-		{ "id": 3, "created_at": "Sun May 05 2013", "amount": 4000},
-		{ "id": 1, "created_at": "Mon May 13 2013", "amount": 2000},
-		{ "id": 2, "created_at": "Thu Jun 06 2013", "amount": 17000},
-		{ "id": 4, "created_at": "Thu May 09 2013", "amount": 15000},
-		{ "id": 5, "created_at": "Mon Jul 01 2013", "amount": 16000}
+			{ "id": 3, "created_at": "Sun May 05 2013", "amount": 4000 },
+			{ "id": 1, "created_at": "Mon May 13 2013", "amount": 2000 },
+			{ "id": 2, "created_at": "Thu Jun 06 2013", "amount": 17000 },
+			{ "id": 4, "created_at": "Thu May 09 2013", "amount": 15000 },
+			{ "id": 5, "created_at": "Mon Jul 01 2013", "amount": 16000 }
 		];
 
-		(function() {
+		(function () {
 			var data = JSONData.slice()
 			var format = d3.time.format("%a %b %d %Y")
-			var amountFn = function(d) { return d.amount }
-			var dateFn = function(d) { return format.parse(d.created_at) }
+			var amountFn = function (d) { return d.amount }
+			var dateFn = function (d) { return format.parse(d.created_at) }
 
 			var x = d3.time.scale()
-			.range([10, 280])
-			.domain(d3.extent(data, dateFn))
+				.range([10, 280])
+				.domain(d3.extent(data, dateFn))
 
 			var y = d3.scale.linear()
-			.range([180, 10])
-			.domain(d3.extent(data, amountFn))
+				.range([180, 10])
+				.domain(d3.extent(data, amountFn))
 
 			var svg = d3.select("#demo").append("svg:svg")
-			.attr("width", 600)
-			.attr("height", 400);
+				.attr("width", 600)
+				.attr("height", 400);
 
 			var border = 5;
 			var bordercolor = "#9292cc";
 			var borderPath = svg.append("rect")
-			.attr("x", 0)
-			.attr("y", 0)
-			.attr("width", 600)
-			.attr("height", 400)
-			.style("stroke", bordercolor)
-			.style("fill", "#f2f2f2")
-			.style("stroke-width", border);
+				.attr("x", 0)
+				.attr("y", 0)
+				.attr("width", 600)
+				.attr("height", 400)
+				.style("stroke", bordercolor)
+				.style("fill", "#f2f2f2")
+				.style("stroke-width", border);
 
 
-			var refreshGraph = function() {
+			var refreshGraph = function () {
 				svg.selectAll("circle").data(data).enter()
-				.append("svg:circle")
-				.attr("r", 10)
-				.attr("cx", function(d) { return x(dateFn(d)) })
-				.attr("cy", function(d) { return y(amountFn(d)) })
-				.on("click", function(d, i) {
-					console.log(d, i);
-					console.log(d3.select(this).attr("cx"));
-					d3.select(this).transition().delay(250).attr("cy", function(d) { d.amount -= 5000; return y(amountFn(d)) }).style("fill", "purple");
-				})
-				.on("mouseover", function(d, i) {
-					console.log(d3.select(data[i]));
-					d3.select(this).style("fill", "red");
-				})
-				.on("mouseout", function(d, i) {
-	     	//d3.selectAll("circle").style("fill", "teal");
-	     })
+					.append("svg:circle")
+					.attr("r", 10)
+					.attr("cx", function (d) { return x(dateFn(d)) })
+					.attr("cy", function (d) { return y(amountFn(d)) })
+					.on("click", function (d, i) {
+						console.log(d, i);
+						console.log(d3.select(this).attr("cx"));
+						d3.select(this).transition().delay(250).attr("cy", function (d) { d.amount -= 5000; return y(amountFn(d)) }).style("fill", "purple");
+					})
+					.on("mouseover", function (d, i) {
+						console.log(d3.select(data[i]));
+						d3.select(this).style("fill", "red");
+					})
+					.on("mouseout", function (d, i) {
+						//d3.selectAll("circle").style("fill", "teal");
+					})
 			}
 
 			d3.selectAll(".add-data")
-			.on("click", function() {
-				var start = d3.min(data, dateFn)
-				var end = d3.max(data, dateFn)
-				var time = start.getTime() + Math.random() * (end.getTime() - start.getTime())
-				var date = new Date(time)
+				.on("click", function () {
+					var start = d3.min(data, dateFn)
+					var end = d3.max(data, dateFn)
+					var time = start.getTime() + Math.random() * (end.getTime() - start.getTime())
+					var date = new Date(time)
 
-				obj = {
-					'id': Math.floor(Math.random() * 70),
-					'amount': Math.floor(1000 + Math.random() * 20001),
-					'created_at': date.toDateString()
-				};
-				console.log(obj);
-				
-				data.push(obj);
-				
-				refreshGraph();
-			})
+					obj = {
+						'id': Math.floor(Math.random() * 70),
+						'amount': Math.floor(1000 + Math.random() * 20001),
+						'created_at': date.toDateString()
+					};
+					console.log(obj);
+
+					data.push(obj);
+
+					refreshGraph();
+				})
 
 			refreshGraph()
 
@@ -413,5 +431,6 @@ function lineGraph() {
 
 
 
-	</script>
-	</html>
+</script>
+
+</html>

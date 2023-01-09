@@ -10,10 +10,13 @@
     <div>
         <div class="form-group linkModificationForm">
             <form action="" method="post">
-                <label for="field2"><span>Email <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+                <label for="field2"><span>Email <span class="required">*</span></span><input type="text"
+                        class="input-field" name="field2" value="" /></label>
                 <label><span>Telephone</span>
-                <input type="text" class="tel-number-field" name="tel_no_1" value="" maxlength="4" />-<input type="text" class="tel-number-field" name="tel_no_2" value="" maxlength="4"  />-<input type="text" class="tel-number-field" name="tel_no_3" value="" maxlength="10"  /></label>
-            
+                    <input type="text" class="tel-number-field" name="tel_no_1" value="" maxlength="4" />-<input
+                        type="text" class="tel-number-field" name="tel_no_2" value="" maxlength="4" />-<input
+                        type="text" class="tel-number-field" name="tel_no_3" value="" maxlength="10" /></label>
+
                 </label>
 
                 <label><span>&nbsp;</span><input type="submit" value="Submit" /></label>
@@ -27,18 +30,14 @@
             <button id="addNode">Add Node</button>
         </div>
 
-        <span>{{output}}</span>
     </div>
 
     <svg id="svg" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid"></svg>
 
-    <script src="../node_modules/angular/angular.js"></script>
     <script src="//d3js.org/d3.v4.min.js"></script>
     <script src="verticalTree.js"></script>
     <script src="addNodeForm/addNodeForm.js"></script>
     <script src="linkModificationForm/linkModificationForm.js"></script>
-
-    <script src="verticalTreeAngularApp.js"></script>
 </body>
 
 

@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-		
+
 	<style>
 		/* Common */
-		html, body {
+		html,
+		body {
 			height: 100%;
 			width: 100%;
-			
-			margin: 0; padding: 0;
-			
+
+			margin: 0;
+			padding: 0;
+
 			font-family: 'Arial';
 		}
-		
+
 		/* Header */
 		section.header {
 			margin: 0;
 			padding: 10px;
 
-			-webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.6);
-			-moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.6);
-			box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.6);
+			-webkit-box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
+			-moz-box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
+			box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
 		}
+
 		section.header .title {
-			font-size:22px;
-			
+			font-size: 22px;
+
 			color: #333;
 			display: inline-block;
-			
-			line-height:32px;
+
+			line-height: 32px;
 		}
-		section.header > .right {
+
+		section.header>.right {
 			float: right;
-			line-height:32px;
+			line-height: 32px;
 			height: 52px;
 		}
-		
-		.container { 
+
+		.container {
 			margin-top: 20px;
 		}
-
-
 	</style>
-	
+
 	<link href="assets/css/rotate-text.css" rel="stylesheet" />
 	<link href="assets/css/progress-bar.css" rel="stylesheet" />
 	<link href="css/dropdown-list.css" rel="stylesheet" />
@@ -54,14 +57,14 @@
 <body>
 	<section class="header">
 		<div class="title">D3 Demos</div>
-		
+
 		<div class="right">
 			<div class="dropdown">
-				<a uib-dropdown-toggle="" 
-					class="profile-toggle-link dropdown-toggle" aria-haspopup="true" aria-expanded="true">
+				<a uib-dropdown-toggle="" class="profile-toggle-link dropdown-toggle" aria-haspopup="true"
+					aria-expanded="true">
 					Links
 				</a>
-				
+
 				<ul class="dropdownList">
 					<li>
 						<a href="scatter-chart.html">Scatter Chart</a>
@@ -100,16 +103,16 @@
 			</div>
 		</div>
 	</section>
-	
+
 
 	<section class="container">
 		<div id="nbArea"></div>
-		
+
 		<div class="noteBlock">
 			<div class="title">CSS Progress Bar</div>
-			
+
 			<a href="json-chart.html">Sortable Bar Chart (JSON)</a>
-			
+
 			<div class="row">
 				<span>
 					Big Query:
@@ -133,7 +136,7 @@
 		<div class="noteBlock" id="progress-bar-area">
 			<div class="title">Navigation Links</div>
 		</div>
-		
+
 	</section>
 </body>
 
@@ -183,67 +186,67 @@
 	</div>
 
 </script>
-	<!-- Scripts -->
+<!-- Scripts -->
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
 
 <script>
-	(function() {
+	(function () {
 		class HexGen {
 			constructor(seed) {
 				this.seed = seed || 0;
 				this.chars = '0123456789ABCDEF';
 			}
-			
+
 			generateHex() {
 				var hexStr = '';
-				
-				for(var i = 0; i < 6; i++) {
+
+				for (var i = 0; i < 6; i++) {
 					var randomIdx = Math.floor(Math.random() * this.chars.length);
-					
+
 					hexStr += this.chars[randomIdx];
 				}
-				
+
 				return hexStr;
 			}
 		}
-		
+
 		class HandlebarsHelper {
 			constructor() {
-				
+
 			}
-			
+
 			getTemplateHtml(templateId, object) {
 				var source = $(templateId).html();
 				var template = Handlebars.compile(source);
-				
+
 				return template(object);
 			}
 		}
-			
+
 		class NoteBlock {
 			constructor(title, content, noteBlockTemplateId) {
 				this.title = title;
 				this.content = content;
-				
+
 				this.handlebarsHelper = new HandlebarsHelper();
-				
+
 				this.color = hg.generateHex();
-				
+
 				this.colorStyle = 'background: #' + this.color;
-				
+
 				this.noteBlockTemplateId = noteBlockTemplateId || '#noteBlockTemplate';
 			}
-			
+
 			getColor() {
 				return this.color;
 			}
-			
+
 			render() {
 				var html = this.handlebarsHelper.getTemplateHtml(this.noteBlockTemplateId, this);
-				
+
 				$('#nbArea').append(html);
 			}
 		}
@@ -251,13 +254,13 @@
 		function addNoteBlocks() {
 			// add note blocks
 			var noteBlocks = [];
-			
+
 			/*for (var i = 0; i < 10; i++) {
 				var nb = new NoteBlock('Title' + i, i * i);
 				noteBlocks.push(nb);
 			}*/
-			
-			$('.dropdownList li').each(function(index, el) {
+
+			$('.dropdownList li').each(function (index, el) {
 				//console.log($(el).find('a').text(), $(el).find('a').prop('href'));
 
 				var text = $(el).find('a').text();
@@ -268,27 +271,27 @@
 
 			for (var idx in noteBlocks) {
 				var nb = noteBlocks[idx];
-				
+
 				nb.render();
 			}
 
 		}
-		
+
 		function init() {
 			window.hg = new HexGen(0);
-			
+
 			addNoteBlocks();
-			
+
 			// handlebars - progress bar template
 			window.hbh = new HandlebarsHelper();
 			var html = hbh.getTemplateHtml('#progressBarTemplate', {});
 			$('#progress-bar-area').append(html);
 		}
-		
-		
+
+
 		//init function
 		init();
 	})();
 </script>
-	
+
 </html>

@@ -7,7 +7,7 @@
 }
 
 .form-group.addNodeForm::before {
-  content: "Add Node Form";
+  content: 'Add Node Form';
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 

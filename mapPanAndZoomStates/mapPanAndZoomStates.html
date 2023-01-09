@@ -1,63 +1,64 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+
 <body>
-    
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
-<script>
 
-var width = 960,
-    height = 600;
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script>
 
-var radius = height / 2 - 5,
-    scale = radius,
-    velocity = .02;
+        var width = 960,
+            height = 600;
 
-var projection = d3.geo.orthographic()
-    .translate([width / 2, height / 2])
-    .scale(scale)
-    .clipAngle(90);
+        var radius = height / 2 - 5,
+            scale = radius,
+            velocity = .02;
 
-var canvas = d3.select("body").append("canvas")
-    .attr("width", width)
-    .attr("height", height);
+        var projection = d3.geo.orthographic()
+            .translate([width / 2, height / 2])
+            .scale(scale)
+            .clipAngle(90);
 
-var context = canvas.node().getContext("2d");
+        var canvas = d3.select("body").append("canvas")
+            .attr("width", width)
+            .attr("height", height);
 
-var path = d3.geo.path()
-    .projection(projection)
-    .context(context);
+        var context = canvas.node().getContext("2d");
 
-d3.json("world-110m.json", function(error, world) {
-  if (error) throw error;
+        var path = d3.geo.path()
+            .projection(projection)
+            .context(context);
 
-  console.log(world);
-  
-  var land = topojson.feature(world, world.objects.land);
+        d3.json("world-110m.json", function (error, world) {
+            if (error) throw error;
 
-  // the world is spinning
-  d3.timer(function(elapsed) {
-    context.clearRect(0, 0, width, height);
+            console.log(world);
 
-    projection.rotate([velocity * elapsed, 0]);
-    context.beginPath();
-    path(land);
-    context.fill();
+            var land = topojson.feature(world, world.objects.land);
 
-    context.beginPath();
-    context.arc(width / 2, height / 2, radius, 0, 2 * Math.PI, true);
-    context.lineWidth = 2.5;
-    context.stroke();
+            // the world is spinning
+            d3.timer(function (elapsed) {
+                context.clearRect(0, 0, width, height);
 
-    if (elapsed % 3 === 0) context.fillStyle = '#1188cc';
-    else if (elapsed %2 === 0) context.fillStyle = '#998811';
-    else context.fillStyle = '#118822';
-  });
-});
+                projection.rotate([velocity * elapsed, 0]);
+                context.beginPath();
+                path(land);
+                context.fill();
 
-d3.select(self.frameElement).style("height", height + "px");
+                context.beginPath();
+                context.arc(width / 2, height / 2, radius, 0, 2 * Math.PI, true);
+                context.lineWidth = 2.5;
+                context.stroke();
 
-</script>
+                if (elapsed % 3 === 0) context.fillStyle = '#1188cc';
+                else if (elapsed % 2 === 0) context.fillStyle = '#998811';
+                else context.fillStyle = '#118822';
+            });
+        });
+
+        d3.select(self.frameElement).style("height", height + "px");
+
+    </script>
 
 </body>
 
