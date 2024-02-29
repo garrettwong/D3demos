@@ -1,0 +1,48 @@
+/* Common */
+html,
+body {
+    height: 100%;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Product Sans';
+}
+
+/* Header */
+section.header {
+    margin: 0;
+    padding: 10px;
+
+    -webkit-box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
+}
+
+section.header .title {
+    font-size: 22px;
+
+    color: #333;
+    display: inline-block;
+
+    line-height: 32px;
+}
+
+section.header>.right {
+    float: right;
+    line-height: 32px;
+    height: 52px;
+}
+
+#nbArea {
+    text-align: center;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.dropdown {
+    cursor: pointer;
+}

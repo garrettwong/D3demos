@@ -1,12 +1,16 @@
 # D3demos
 
-D3 tests
+Demos of d3.js across various versions.  
 
-# Getting started
+# Getting Started
+
+To get started, refer to the following:
 
 ```bash
-git clone https://github.com/garrettwong/D3demos.git
+git clone git@github.com:garrettwong/D3demos.git
+cd D3demos/
+
 npm install
-npm audit --fix
+npm audit fix
 npm start
 ```

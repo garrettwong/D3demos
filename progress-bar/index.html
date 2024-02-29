@@ -1,0 +1,51 @@
+<head>
+    <link href="../assets/css/progress-bar.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="header">
+        <div style="text-align: center">
+            <div class="noteBlock">
+                <div class="title">CSS Progress Bar</div>
+
+                <a href="json-chart.html">Sortable Bar Chart (JSON)</a>
+
+                <div class="row">
+                    <div class="rotateText">Very</div>
+                    <div class="rotateText">Interesting</div>
+                </div>
+            </div>
+
+            <div class="noteBlock" id="progress-bar-area">
+                <div class="title">Navigation Links</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+
+<!-- Scripts -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+
+<script>
+	(function () {
+		function init() {
+			window.hg = new HexGen(0);
+
+			addNoteBlocks();
+
+			// handlebars - progress bar template
+			window.hbh = new HandlebarsHelper();
+			var html = hbh.getTemplateHtml('#progressBarTemplate', {});
+			$('#progress-bar-area').append(html);
+		}
+
+
+		//init function
+		init();
+	})();
+</script>
+
+</html>

@@ -3,60 +3,20 @@
 <html>
 
 <head>
+	<link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
 
-	<style>
-		/* Common */
-		html,
-		body {
-			height: 100%;
-			width: 100%;
-
-			margin: 0;
-			padding: 0;
-
-			font-family: 'Arial';
-		}
-
-		/* Header */
-		section.header {
-			margin: 0;
-			padding: 10px;
-
-			-webkit-box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
-			-moz-box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
-			box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
-		}
-
-		section.header .title {
-			font-size: 22px;
-
-			color: #333;
-			display: inline-block;
-
-			line-height: 32px;
-		}
-
-		section.header>.right {
-			float: right;
-			line-height: 32px;
-			height: 52px;
-		}
-
-		.container {
-			margin-top: 20px;
-		}
-	</style>
-
+	<link href="css/common.css" rel="stylesheet">
 	<link href="assets/css/rotate-text.css" rel="stylesheet" />
 	<link href="assets/css/progress-bar.css" rel="stylesheet" />
 	<link href="css/dropdown-list.css" rel="stylesheet" />
 	<link href="css/note-block.css" rel="stylesheet" />
+	<link href="css/card-grid.css" rel="stylesheet" />
 </head>
 
 
 <body>
 	<section class="header">
-		<div class="title">D3 Demos</div>
+		<div class="title">D3X</div>
 
 		<div class="right">
 			<div class="dropdown">
@@ -66,38 +26,57 @@
 				</a>
 
 				<ul class="dropdownList">
+
 					<li>
-						<a href="scatter-chart.html">Scatter Chart</a>
+						<a href="sortable-bar-chart.html"
+							data-content="This is a cool animation using sortable bar charts and a bouncing ball">
+							Sortable Bar Chart</a>
 					</li>
 					<li>
-						<a href="bar-graphs.html">Bar Graphs</a>
+						<a href="json-chart.html" data-content="Generating a ball bouncing JSON data ingested chart">
+							JSON Chart</a>
+					</li>
+
+					<li>
+						<a href="circle-motion/circle-motion.html"
+							data-content="Circle motion animation game with hello kitty">
+							Circle Motion Game</a>
 					</li>
 					<li>
-						<a href="json-chart.html">JSON Chart</a>
+						<a href="verticalTree/verticalTree.html" data-content="Vertical TREE">
+							Vertical Tree</a>
 					</li>
 					<li>
-						<a href="quicksort.html">Quicksort</a>
+						<a href="perceptualGraph/perceptualGraph.html" data-content="Shadow GRAPh">
+							Perceptual Graph with Shadows</a>
 					</li>
 					<li>
-						<a href="sortable-bar-chart.html">Sortable Bar Chart</a>
+						<a href="GTIMELINE/index.html" data-content="OVER T1m3">
+							G Timeline</a>
+					</li>
+					<li>
+						<a href="scatter-chart.html" data-content="Scatter charts are used for">
+							Scatter Chart
+						</a>
+					</li>
+					<li>
+						<a href="bar-graphs.html" data-content="Bar charts are good for comparing values over time">
+							Bar Graphs</a>
+					</li>
+					<li>
+						<a href="quicksort.html" data-content="A sidewinder generation">
+							Sidewinder generation</a>
 					</li>
 					<li>
 						<a href="test.html">Test Chart</a>
 					</li>
 					<li>
-						<a href="circle-motion/circle-motion.html">Circle Motion Game</a>
+						<a href="USCONG/index.html" data-content="MAP">US Congressional Districts</a>
 					</li>
+
 					<li>
-						<a href="verticalTree/verticalTree.html">Vertical Tree</a>
-					</li>
-					<li>
-						<a href="perceptualGraph/perceptualGraph.html">Perceptual Graph with Shadows</a>
-					</li>
-					<li>
-						<a href="GTIMELINE/index.html">G Timeline</a>
-					</li>
-					<li>
-						<a href="USCONG/index.html">US Congressional Districts</a>
+						<a href="progress-bar/index.html" data-content="CSS Animated Progress Bar">
+							Progress Bar</a>
 					</li>
 				</ul>
 			</div>
@@ -106,35 +85,10 @@
 
 
 	<section class="container">
-		<div id="nbArea"></div>
 
-		<div class="noteBlock">
-			<div class="title">CSS Progress Bar</div>
 
-			<a href="json-chart.html">Sortable Bar Chart (JSON)</a>
-
-			<div class="row">
-				<span>
-					Big Query:
-				</span>
-				<a href="https://developers.google.com/bigquery/">BigQuery</a>
-			</div>
-
-			<div class="row">
-				<span>
-					HDFS:
-				</span>
-				<a href="http://hadoop.apache.org/docs/r1.2.1/hdfs_design.html">hdfs</a>
-			</div>
-
-			<div class="row">
-				<div class="rotateText">Very</div>
-				<div class="rotateText">Interesting</div>
-			</div>
-		</div>
-
-		<div class="noteBlock" id="progress-bar-area">
-			<div class="title">Navigation Links</div>
+		<div class="content-main">
+			<div id="nbArea" class="card-grid"></div>
 		</div>
 
 	</section>
@@ -142,11 +96,26 @@
 
 <!-- Templates -->
 <script id="noteBlockTemplate" type="text/x-handlebars-template">
-	<div class="noteBlock" style="box-shadow: 1px 3px 3px 0px #{{color}};border: 1px solid #{{color}};">
-		<div class="title">{{title}}</div>
-		
-		<div class="content"><a href="{{content}}" target="_blank">{{title}}</a></div>
-	</div>
+	<article class="card">
+		<div class="card-header">
+			<div>
+				<span><img src="{{imgUrl}}"></span>
+				<h3>{{title}}</h3>
+			</div>
+			<label class="toggle">
+				<input type="checkbox" checked="">
+				<span></span>
+			</label>
+		</div>
+
+		<div class="card-body">
+			<p>{{content}}</p>
+		</div>
+
+		<div class="card-footer">
+			<a href="{{url}}" target="_blank">View</a>
+		</div>
+	</article>
 </script>
 
 
@@ -186,8 +155,8 @@
 	</div>
 
 </script>
-<!-- Scripts -->
 
+<!-- Scripts -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
@@ -227,9 +196,11 @@
 		}
 
 		class NoteBlock {
-			constructor(title, content, noteBlockTemplateId) {
+			constructor(title, content, url, imgUrl, noteBlockTemplateId) {
 				this.title = title;
 				this.content = content;
+				this.url = url;
+				this.imgUrl = imgUrl;
 
 				this.handlebarsHelper = new HandlebarsHelper();
 
@@ -259,14 +230,26 @@
 				var nb = new NoteBlock('Title' + i, i * i);
 				noteBlocks.push(nb);
 			}*/
+			let imgUrls = [
+				'assets/sortable-bar-chart.png',
+				'https://assets.codepen.io/285131/zeplin.svg',
+				'https://assets.codepen.io/285131/github.svg',
+				'https://assets.codepen.io/285131/figma.svg',
+				'https://assets.codepen.io/285131/zapier.svg',
+				'https://assets.codepen.io/285131/jira.svg',
+				'https://assets.codepen.io/285131/slack.svg',
+				'https://assets.codepen.io/285131/google-chrome.svg',
+				'https://assets.codepen.io/285131/google-drive.svg'
+			];
 
+			// generate cards from dropdown list (for each list item)
 			$('.dropdownList li').each(function (index, el) {
-				//console.log($(el).find('a').text(), $(el).find('a').prop('href'));
-
 				var text = $(el).find('a').text();
-				var val = $(el).find('a').prop('href');
+				var content = $(el).find('a').data('content');
+				var openUrl = $(el).find('a').prop('href');
+				var imgUrl = imgUrls[Math.floor(Math.random() * imgUrls.length)]; // random
 
-				noteBlocks.push(new NoteBlock(text, val));
+				noteBlocks.push(new NoteBlock(text, content, openUrl, imgUrl));
 			});
 
 			for (var idx in noteBlocks) {

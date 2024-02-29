@@ -1,23 +1,33 @@
 .noteBlock {
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
-    
+
     width: 220px;
+    min-height: 60px;
     padding: 12px;
-    border-radius: 0px;    
+    border-radius: 10px;
     display: inline-block;
 
-    -webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.6);
-    -moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.6);
-    box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.6);
+    background-color: #e2e2e2;
+
+    -webkit-box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 1px 6px 13px 0px rgba(0, 0, 0, 0.6);
+
+    -webkit-transition: background 1s, border-radius 1s;
+    transition: background 1s, border-radius 1s;
 }
+
 .noteBlock:hover {
     box-shadow: 4px 4px 4px #666;
     cursor: pointer;
+    border-radius: 15px;
+    width: 240px;
+    background: #c2c2c2;
 }
 
-.noteBlock > .title {
+.noteBlock>.title {
     color: #4078c0;
     font-weight: 700;
     font-size: 12px;
@@ -25,6 +35,6 @@
     margin-bottom: 4px;
 }
 
-.noteBlock > .content {
+.noteBlock>.content {
     font-size: 12px;
 }
