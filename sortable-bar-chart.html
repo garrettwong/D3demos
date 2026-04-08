@@ -159,10 +159,15 @@
 
         let colorNames = Object.keys(COLORS);
         let randomIndex = Math.floor(Math.random() * colorNames.length)
+        
         transition.selectAll(".bar")
           .delay(delay)
           .style("fill", colorNames[randomIndex]);
         // .attr("x", function (d) { return x0(d.letter); });
+
+        transition.selectAll("circle")
+          .delay(delay)
+          .style("fill", colorNames[randomIndex]);
       }
 
       function change() {
